@@ -42,7 +42,20 @@ A busca incessante por relevância e acurácia leva o sistema a criar listas de 
 Para combater a Bolha de Filtragem, é necessário incorporar métricas de Diversidade e Novidade no processo de recomendação, geralmente na etapa de Re-ranking.
 O Maximal Marginal Relevance (MMR) é uma técnica de re-ranking (pós-processamento) que visa equilibrar o trade-off entre Relevância e Diversidade/Não-Redundância na lista final. Diferentemente de abordagens que corrigem o viés nos dados de entrada (pré-processamento) ou no treinamento do modelo, o MMR atua diretamente na lista Top-N gerada pelo modelo base.
 
+O MMR seleciona sequencialmente o próximo item ($i$) do conjunto de candidatos restantes ($R$) que maximiza a seguinte função:  
 
+$$\text{MMR}(i) = \lambda \cdot \text{Relevância}(i) - (1 - \lambda) \cdot \text{MaxSimilaridade}(i, S)$$  
 
+Onde:
+- $\text{Relevância}(i)$: A pontuação predita pelo modelo de base (e.g., SVD, Fatores Colaborativos) para o item $i$ e o usuário, refletindo o gosto.
+- $\text{MaxSimilaridade}(i, S)$: A maior similaridade de conteúdo ou feature (geralmente medida por Similaridade de Cosseno entre vetores de features) entre o item $i$ e qualquer item $j$ que já foi selecionado para a lista final ($S$).
+- $\lambda$: É o parâmetro de ponderação, $\lambda \in [0, 1]$, que controla o peso dado à relevância versus a diversidade:
+- $\lambda \to 1$: O sistema se comporta como um Top-N padrão, priorizando a relevância.
+- $\lambda \to 0$: O sistema prioriza itens com baixa similaridade, maximizando a diversidade, mas potencialmente sacrificando a relevância.
 
+Ao subtrair o termo $\text{MaxSimilaridade}$, o MMR penaliza itens que são muito parecidos com o que já foi selecionado. Isso garante que a lista final seja composta por itens que não apenas o usuário gostará, mas que também representem uma ampla variedade de features ou categorias de conteúdo, combatendo diretamente a redundância que caracteriza a Bolha de Filtragem.
+No código de demonstração em Python (Jupyter Notebook), a eficácia do MMR é comprovada pela métrica Diversidade Intra-Lista (ou Média de Dissimilaridade), que mede a dissimilaridade média entre todos os pares de itens recomendados. A aplicação do MMR com um $\lambda$ balanceado resulta em uma pontuação de Diversidade significativamente maior em comparação com a lista baseline (puramente relevante), confirmando a capacidade da técnica de promover a variedade sem anular o gosto do usuário.
 
+## Implicações Éticas e Conclusão
+Os Sistemas de Recomendação são ferramentas poderosas que demandam responsabilidade e atenção a objetivos que transcendem a acurácia. A discussão sobre Viés, Equidade e Bolha de Filtragem é central para a Engenharia de Sistemas de Recomendação de próxima geração.
+A incorporação de técnicas como o Maximal Marginal Relevance (MMR) sinaliza a mudança de paradigma de uma otimização unicamente focada na acurácia para uma otimização multicritério, onde a diversidade e a equidade são parâmetros de design tão importantes quanto o desempenho preditivo. Ao educar o público e implementar soluções como o MMR, podemos capacitar usuários a serem consumidores críticos e desenvolvedores a construir algoritmos que promovam uma sociedade mais informada e equitativa.
