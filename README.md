@@ -51,8 +51,8 @@ O MMR seleciona sequencialmente o próximo item ($i$) do conjunto de candidatos 
 $$\text{MMR}(i) = \lambda \cdot \text{Relevância}(i) - (1 - \lambda) \cdot \text{MaxSimilaridade}(i, S)$$  
 
 Onde:
-- $\text{Relevância}(i)$: A pontuação predita pelo modelo de base (e.g., SVD, Fatores Colaborativos) para o item $i$ e o usuário, refletindo o gosto.
-- $\text{MaxSimilaridade}(i, S)$: A maior similaridade de conteúdo ou feature (geralmente medida por Similaridade de Cosseno entre vetores de features) entre o item $i$ e qualquer item $j$ que já foi selecionado para a lista final ($S$).
+- $\text{Relevância}(i)$: A pontuação predita pelo modelo de base (noo caso, o SVD) para o item $i$ e o usuário, refletindo o gosto.
+- $\text{MaxSimilaridade}(i, S)$: A maior similaridade (no caso, similaridade de cosseno entre os fatores latentes do SVD) entre o item $i$ e qualquer item $j$ que já foi selecionado para a lista final ($S$).
 - $\lambda$: É o parâmetro de ponderação, $\lambda \in [0, 1]$, que controla o peso dado à relevância versus a diversidade:
 - $\lambda \to 1$: O sistema se comporta como um Top-N padrão, priorizando a relevância.
 - $\lambda \to 0$: O sistema prioriza itens com baixa similaridade, maximizando a diversidade, mas potencialmente sacrificando a relevância.
