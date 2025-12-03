@@ -10,6 +10,7 @@ Disciplina: SCC0284 – Sistemas de Recomendação
 Este tutorial aprofunda os aspectos éticos e técnicos dos Sistemas de Recomendação (SRs), focando nos fenômenos do Viés Algorítmico, da falta de Equidade e da Bolha de Filtragem. Apresentamos a fundamentação conceitual desses problemas e, em complemento ao material da disciplina, detalhamos uma estratégia avançada de pós-processamento para a mitigação das Bolhas: o algoritmo Maximal Marginal Relevance (MMR). O MMR busca ativamente otimizar a diversidade da lista de recomendação, equilibrando a relevância predita para o usuário com a não-redundância do conteúdo.
 
 Link para a videoaula: https://www.youtube.com/watch?v=fWLXjqBXDiA
+
 Link para as avaliações da feira: https://docs.google.com/spreadsheets/d/1aKc9K0jyI1rd2DujS-ulRNJtpnZkQXyMxS4kCIpAOTY/edit?usp=sharing
 
 ## Introdução
