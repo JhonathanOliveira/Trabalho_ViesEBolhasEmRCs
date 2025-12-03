@@ -9,6 +9,9 @@ Disciplina: SCC0284 – Sistemas de Recomendação
 ## Resumo
 Este tutorial aprofunda os aspectos éticos e técnicos dos Sistemas de Recomendação (SRs), focando nos fenômenos do Viés Algorítmico, da falta de Equidade e da Bolha de Filtragem. Apresentamos a fundamentação conceitual desses problemas e, em complemento ao material da disciplina, detalhamos uma estratégia avançada de pós-processamento para a mitigação das Bolhas: o algoritmo Maximal Marginal Relevance (MMR). O MMR busca ativamente otimizar a diversidade da lista de recomendação, equilibrando a relevância predita para o usuário com a não-redundância do conteúdo.
 
+Link para a videoaula: https://www.youtube.com/watch?v=fWLXjqBXDiA
+Link para as avaliações da feira: https://docs.google.com/spreadsheets/d/1aKc9K0jyI1rd2DujS-ulRNJtpnZkQXyMxS4kCIpAOTY/edit?usp=sharing
+
 ## Introdução
 Sistemas de Recomendação (SRs) são algoritmos de filtragem de informação projetados para predizer a preferência de um usuário por um item (produto, filme, notícia, etc.) não consumido anteriormente. Eles são pilares da economia digital (Netflix, Spotify, Amazon), operando majoritariamente por meio de Filtros Colaborativos ou Filtros Baseados em Conteúdo.
 Apesar de sua utilidade, a forma como os SRs são treinados e avaliados (focando em métricas como acurácia e Root Mean Square Error - RMSE) tem gerado consequências sistêmicas negativas que afetam a justiça social e a experiência informacional do usuário.
